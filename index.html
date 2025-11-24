@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pathfinder Visualizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom animations for grid interactions */
+      @keyframes visitedAnimation {
+        0% {
+          transform: scale(0.3);
+          background-color: #4f46e5; /* indigo-600 */
+          border-radius: 100%;
+        }
+        50% {
+          background-color: #818cf8; /* indigo-400 */
+        }
+        100% {
+          transform: scale(1);
+          background-color: #6366f1; /* indigo-500 */
+        }
+      }
+
+      @keyframes shortestPathAnimation {
+        0% {
+          transform: scale(0.6);
+          background-color: #fbbf24; /* amber-400 */
+        }
+        100% {
+          transform: scale(1);
+          background-color: #f59e0b; /* amber-500 */
+        }
+      }
+
+      @keyframes wallAnimation {
+        0% {
+          transform: scale(0.3);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes modalFadeIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .node-visited {
+        animation-name: visitedAnimation;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-out;
+        animation-delay: 0;
+        animation-direction: alternate;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        background-color: #6366f1; /* Final color indigo-500 */
+        border: 1px solid #818cf8;
+      }
+
+      .node-shortest-path {
+        animation-name: shortestPathAnimation;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-out;
+        animation-delay: 0;
+        animation-direction: alternate;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        background-color: #f59e0b; /* Final color amber-500 */
+        border: none;
+      }
+
+      .node-wall {
+        background-color: #64748b; /* slate-500 */
+        animation-name: wallAnimation;
+        animation-duration: 0.3s;
+        animation-timing-function: ease-out;
+        border: none;
+      }
+
+      .modal-animate {
+        animation: modalFadeIn 0.2s ease-out forwards;
+      }
+
+      /* Prevent text selection during drag */
+      .no-select {
+        user-select: none;
+        -webkit-user-select: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-slate-950 text-slate-200">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

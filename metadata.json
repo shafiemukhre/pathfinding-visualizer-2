@@ -1,0 +1,5 @@
+{
+  "name": "Pathfinder Visualizer",
+  "description": "A high-performance interactive visualization of Dijkstra's algorithm using React and Tailwind CSS.",
+  "requestFramePermissions": []
+}
